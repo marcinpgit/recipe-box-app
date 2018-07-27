@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import Header from './components/Header';
+import RecipeApp from './components/RecipeApp';
 
-ReactDOM.render(<Header />, document.getElementById('root'));
+ReactDOM.render(<RecipeApp />, document.getElementById('root'));
 registerServiceWorker();
