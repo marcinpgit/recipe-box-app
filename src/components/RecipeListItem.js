@@ -11,7 +11,8 @@ const RecipeListItem = (props) => (
         {
             props.recipes.map( (recipe, index) => (
                 <RecipeItem 
-                    key={ recipe }
+                    key={ recipe.id }
+                    id={ recipe.id }
                     ind={ index + 1 }
                     recipeTitle={ recipe.title }
                     recipeDescription={ recipe.description }

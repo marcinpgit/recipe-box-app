@@ -6,10 +6,10 @@ const RecipeItem = (props) => (
         <p>{ props.recipeDescription }</p>
         <button>Edit Recipe</button>
         <button
-        onClick={ e => {
-            props.handleDeleteRecipe();
-        }}
-        >Remove Recipe</button>
+            onClick={ (e) => { props.handleDeleteRecipe(props.id) }}
+        >
+            Remove Recipe
+        </button>
     </div>
 );
 

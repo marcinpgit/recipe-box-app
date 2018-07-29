@@ -4,27 +4,34 @@ import Header from './Header';
 import RecipeListItem from './RecipeListItem';
 
 class RecipeApp extends React.Component {
-    state = {
-        recipes: [
-            {
-                title: 'Zupa',
-                createBy: 'Alex',
-                description: 'Pyszna zupa dla glodnego',
-                ingredients: ['cebula', 'woda'],
-                directions: 'gotowac wode do 99 stopni'
-            },
-            {
-                title: 'Placki',
-                createBy: 'Tom',
-                description: 'Super placki smazone w glebokim oleju',
-                ingredients: ['ziemniaki', 'maka'],
-                directions: 'smazyc placki do 999 stopni'
-            }
-        ]
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            recipes: [
+                {
+                    id: 1,
+                    title: 'Zupa',
+                    createBy: 'Alex',
+                    description: 'Pyszna zupa dla glodnego',
+                    ingredients: ['cebula', 'woda'],
+                    directions: 'gotowac wode do 99 stopni'
+                },
+                {
+                    id: 2,
+                    title: 'Placki',
+                    createBy: 'Tom',
+                    description: 'Super placki smazone w glebokim oleju',
+                    ingredients: ['ziemniaki', 'maka'],
+                    directions: 'smazyc placki do 999 stopni'
+                }
+            ]
+        };
+    }
 
-    handleDeleteRecipe = () => {
-        this.setState(() => ({ recipes: [] }));
+    handleDeleteRecipe = recipeId => {
+        this.setState({
+            recipes: this.state.recipes.filter(recipe => recipe.id !== recipeId)
+        });
     };
 
     handleAddRecipe = () => {
