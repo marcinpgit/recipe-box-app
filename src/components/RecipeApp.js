@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './Header';
+import RecipeListItem from './RecipeListItem';
 
 class RecipeApp extends React.Component {
     state = {
@@ -36,6 +37,9 @@ class RecipeApp extends React.Component {
                         {this.state.recipes.map(recipe => <li>{ recipe.title }</li>)}   
                     </ul>  
                 </div>
+                <RecipeListItem 
+                    recipes={ this.state.recipes }
+                />
             </div>
             
         );
