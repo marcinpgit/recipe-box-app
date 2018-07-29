@@ -23,6 +23,14 @@ class RecipeApp extends React.Component {
         ]
     };
 
+    handleDeleteRecipe = () => {
+        this.setState(() => ({ recipes: [] }));
+    };
+
+    handleAddRecipe = () => {
+
+    };
+
     render() {
         const appTitle = 'Recipe Box Application';
 
@@ -34,6 +42,7 @@ class RecipeApp extends React.Component {
                 </div>
                 <RecipeListItem 
                     recipes={ this.state.recipes }
+                    handleDeleteRecipe={ this.handleDeleteRecipe }
                 />
             </div>
             

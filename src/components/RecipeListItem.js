@@ -12,9 +12,10 @@ const RecipeListItem = (props) => (
             props.recipes.map( (recipe, index) => (
                 <RecipeItem 
                     key={ recipe }
+                    ind={ index + 1 }
                     recipeTitle={ recipe.title }
                     recipeDescription={ recipe.description }
-                    ind={ index + 1 }
+                    handleDeleteRecipe={ props.handleDeleteRecipe }
                 />
             ))
         }

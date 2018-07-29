@@ -5,7 +5,11 @@ const RecipeItem = (props) => (
         <p>{ props.ind }. { props.recipeTitle }</p>
         <p>{ props.recipeDescription }</p>
         <button>Edit Recipe</button>
-        <button>Remove Recipe</button>
+        <button
+        onClick={ e => {
+            props.handleDeleteRecipe();
+        }}
+        >Remove Recipe</button>
     </div>
 );
 
