@@ -13,6 +13,7 @@ const RecipeListItem = (props) => (
                 <RecipeItem 
                     key={ recipe }
                     recipeTitle={ recipe.title }
+                    recipeDescription={ recipe.description }
                     ind={ index + 1 }
                 />
             ))

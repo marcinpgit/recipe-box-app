@@ -16,7 +16,7 @@ class RecipeApp extends React.Component {
             {
                 title: 'Placki',
                 createBy: 'Tom',
-                description: 'Super placki',
+                description: 'Super placki smazone w glebokim oleju',
                 ingredients: ['ziemniaki', 'maka'],
                 directions: 'smazyc placki do 999 stopni'
             }
@@ -31,11 +31,6 @@ class RecipeApp extends React.Component {
                 <Header appTitle = { appTitle }/>
                 <div>
                     My recipes:
-                </div>
-                <div>
-                    <ul>
-                        {this.state.recipes.map(recipe => <li>{ recipe.title }</li>)}   
-                    </ul>  
                 </div>
                 <RecipeListItem 
                     recipes={ this.state.recipes }
