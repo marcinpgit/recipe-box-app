@@ -4,7 +4,7 @@ import RecipeItem from './RecipeItem';
 
 const RecipeListItem = (props) => (
     <div>
-        <h3>Your Recipes List</h3>
+        <h3>{ props.appSubtitle }</h3>
 
         { props.recipes.length === 0 && <p>Please add a recipe!</p> }
 
