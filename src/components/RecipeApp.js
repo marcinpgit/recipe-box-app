@@ -35,33 +35,26 @@ class RecipeApp extends React.Component {
         });
     };
 
-    handleAddRecipe = (recipe) => {
-        if (!recipe) {
+    handleAddRecipe = (newTitle) => {
+        if (!newTitle) {
             return 'Enter valid value to add recipe.';
-        } else if (this.state.recipes.indexOf(recipe) > -1) {
+        } else if (this.state.recipes.indexOf(newTitle) > -1) {
             return 'This recipe already exists.';
         }
 
-        this.setState((prevState) => ({
-            recipes: [...prevState, recipe]
-        }));
-    };
+        const recipe = { title: newTitle };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+        this.state.recipes.push(recipe);
 
-        this.props.AddRecipe(this.state);
-    };
-
-    handleChange = ({ target: {name, value}}) => {
         this.setState({
-            [name]: value
-        })
+            recipes: this.state.recipes
+        });
     };
 
     render() {
         const appTitle = 'Recipe Box Application';
         const appSubTitle = 'Your Recipes List';
+        console.log(this.state.recipes);
 
         return (
             <div>
@@ -75,8 +68,6 @@ class RecipeApp extends React.Component {
                 />
                 <AddRecipe 
                     handleAddRecipe={ this.handleAddRecipe }
-                    handleChange={ this.handleChange }
-                    handleSubmit={ this.handleSubmit }
                 />
             </div>
             
