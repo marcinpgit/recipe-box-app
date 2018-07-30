@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './Header';
 import RecipeListItem from './RecipeListItem';
+import AddRecipe from './AddRecipe';
 
 class RecipeApp extends React.Component {
     constructor(props) {
@@ -34,22 +35,48 @@ class RecipeApp extends React.Component {
         });
     };
 
-    handleAddRecipe = () => {
+    handleAddRecipe = (recipe) => {
+        if (!recipe) {
+            return 'Enter valid value to add recipe.';
+        } else if (this.state.recipes.indexOf(recipe) > -1) {
+            return 'This recipe already exists.';
+        }
 
+        this.setState((prevState) => ({
+            recipes: [...prevState, recipe]
+        }));
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        this.props.AddRecipe(this.state);
+    };
+
+    handleChange = ({ target: {name, value}}) => {
+        this.setState({
+            [name]: value
+        })
     };
 
     render() {
         const appTitle = 'Recipe Box Application';
+        const appSubTitle = 'Your Recipes List';
 
         return (
             <div>
-                <Header appTitle = { appTitle }/>
-                <div>
-                    My recipes:
-                </div>
-                <RecipeListItem 
+                <Header 
+                    appTitle={ appTitle }
+                />
+                <RecipeListItem
+                    appSubtitle={ appSubTitle } 
                     recipes={ this.state.recipes }
                     handleDeleteRecipe={ this.handleDeleteRecipe }
+                />
+                <AddRecipe 
+                    handleAddRecipe={ this.handleAddRecipe }
+                    handleChange={ this.handleChange }
+                    handleSubmit={ this.handleSubmit }
                 />
             </div>
             
