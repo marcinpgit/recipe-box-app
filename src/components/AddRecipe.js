@@ -13,11 +13,7 @@ class AddRecipe extends React.Component {
             <div>
                 <form>
                     <input />
-                    <button onClick={() => {
-                        this.handleAddRecipe(input.value);
-                        input.value = '';
-                    }}
-                    >
+                    <button>
                         Add
                     </button>
                 </form>

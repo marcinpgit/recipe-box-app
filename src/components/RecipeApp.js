@@ -35,20 +35,8 @@ class RecipeApp extends React.Component {
         });
     };
 
-    handleAddRecipe = (newTitle) => {
-        if (!newTitle) {
-            return 'Enter valid value to add recipe.';
-        } else if (this.state.recipes.indexOf(newTitle) > -1) {
-            return 'This recipe already exists.';
-        }
+    handleAddRecipe = () => {
 
-        const recipe = { title: newTitle };
-
-        this.state.recipes.push(recipe);
-
-        this.setState({
-            recipes: this.state.recipes
-        });
     };
 
     render() {
